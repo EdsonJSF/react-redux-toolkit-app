@@ -7,10 +7,12 @@ import { store } from "./store";
 
 import "./main.css";
 
+import { Counter } from "./components/Counter";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      Hello
+      <Counter />
     </Provider>
   </React.StrictMode>
 );
