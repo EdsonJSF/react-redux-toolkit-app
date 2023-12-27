@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const todosApi = createApi({
-  reducerPath: "todos",
+  reducerPath: "todosReducer",
   baseQuery: fetchBaseQuery({
-    vaseUrl: "https://jsonplaceholder.typicode.com",
+    baseUrl: "https://jsonplaceholder.typicode.com",
   }),
   endpoints: (builder) => ({
     getTodos: builder.query({

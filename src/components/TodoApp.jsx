@@ -1,13 +1,28 @@
+import { useGetTodosQuery } from "../store/apis/todosApi";
+
 export const TodoApp = () => {
+  const { data: todos = [], isLoading } = useGetTodosQuery();
+
   return (
     <>
       <h1>TodoApp - RTK Query</h1>
       <hr />
-      <h4>Loading ...</h4>
+      {isLoading ? (
+        <h4>Loading ... </h4>
+      ) : (
+        <>
+          <ul>
+            {todos.map(({ id, title, completed }) => (
+              <li key={id}>
+                <strong> {completed ? "completed" : "incompleted"} </strong>
+                {title}
+              </li>
+            ))}
+          </ul>
 
-      <pre>...</pre>
-
-      <button>Next todo</button>
+          <button>Next todo</button>
+        </>
+      )}
     </>
   );
 };
