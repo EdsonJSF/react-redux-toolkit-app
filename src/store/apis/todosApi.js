@@ -9,7 +9,10 @@ export const todosApi = createApi({
     getTodos: builder.query({
       query: () => "/todos",
     }),
+    getTodoByID: builder.query({
+      query: (id) => `/todos/${id}`,
+    }),
   }),
 });
 
-export const { useGetTodosQuery } = todosApi;
+export const { useGetTodosQuery, useGetTodoByIDQuery } = todosApi;
